@@ -12,8 +12,23 @@
 // Post-condition: A linked-list with 'size' number of nodes
 // If size is zero, a valid 'empty' list is returned
 LinkedList * arrayToLinkedList(int *a, int size) {
+    LinkedList *list = new LinkedList;
+    list->head = list->tail = NULL;
+    
+    for(int i=0; i< size; i++){
+       Node* p  = new Node;
+       p->data = a[i];
+       p->next = NULL;
+       if(i==0){
+           list->head = p;
+       }else{
+           list->tail->next = p;
+       }
+       list->tail = p;
+    }
 
-    return NULL;
+
+    return list;
   
 }
 
